@@ -25,12 +25,13 @@ public class TP3_Heroic_Fantasy_TRICCA {
         armes.add(baton2);
     for (int i = 0; i < armes.size(); i++) {
             Arme arme = armes.get(i); // Utilisation de get() pour accéder à l'élément
-            arme.afficherInfo();
             if (arme instanceof Epee) {
-                ((Epee) arme).trancher();
-            } else if (arme instanceof Baton) {
-                ((Baton) arme).frapper();
+                armes.finesse;
+            }
+            else if (arme instanceof Baton) {
+                armes.age;
             }
     }
     
+}
 }
