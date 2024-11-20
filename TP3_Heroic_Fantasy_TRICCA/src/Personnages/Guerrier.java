@@ -3,42 +3,34 @@
  * @author anton
  */
 // Dans le package Personnages
-
 package Personnages;
 
-import Armes.Arme;
-import Armes.Epee;
-
 public class Guerrier extends Personnage {
-    private boolean ACheval;  // Si le guerrier est à cheval ou non
+    private boolean aCheval;
 
-    // Constructeur pour initialiser les paramètres du guerrier
-    public Guerrier(String nom, int PV, boolean estACheval) {
+    public Guerrier(String nom, int PV, boolean aCheval) {
         super(nom, PV);
-        this.ACheval = ACheval;
+        this.aCheval = aCheval;
+        nombreGuerriers++;  // Incrémente le nombre de guerriers
     }
 
-    // Getter et Setter pour la propriété estACheval
-    public boolean EstACheval() {
-        return ACheval;
-    }
-
-    public void setEstACheval(boolean estACheval) {
-        this.ACheval = ACheval;
-    }
-
-    // Méthode toString pour afficher les informations du guerrier
     @Override
-    public String toString() {
-        return super.toString() + ", A cheval: " + ACheval;
+    public void seFatiguer() {
+        System.out.println(getNom() + " se fatigue et perd 10 PV.");
     }
- public int compterArmesPreferes() {
-        int count = 0;
-        for (Arme arme : super.armes) {
-            if (arme instanceof Epee) {
-                count++;
-            }
-        }
-        return count;
+
+    @Override
+    public boolean estVivant() {
+        return getPV() > 0;
+    }
+
+    @Override
+    public void attaquer(Personnage cible) {
+        System.out.println(getNom() + " attaque " + cible.getNom());
+    }
+
+    // Spécifique au guerrier
+    public boolean isACheval() {
+        return aCheval;
     }
 }
